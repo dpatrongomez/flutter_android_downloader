@@ -30,18 +30,9 @@ public class DownloadMethodChannelHandler implements MethodChannel.MethodCallHan
 
     @Override
     public void onMethodCall(MethodCall call, @NonNull MethodChannel.Result result) {
-        int PERMISSION_CODE = 1000;
         switch (call.method) {
             case "getPlatformVersion":
                 result.success("Android " + Build.VERSION.RELEASE);
-                break;
-            case "getPermission":
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (context.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-                        String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                        this.activity.requestPermissions(permissions, PERMISSION_CODE);
-                    }
-                }
                 break;
             case "download":
                 Long downloadId = null;
@@ -50,17 +41,9 @@ public class DownloadMethodChannelHandler implements MethodChannel.MethodCallHan
                 String directory = call.argument("directory");
                 String originName = call.argument("originName");
                 Map<String,String> headers = call.argument("headers");
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (context.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
-                        String[] permissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE};
-                        this.activity.requestPermissions(permissions, PERMISSION_CODE);
-                    } else {
-                        downloadId = startDownload(url,fileName,directory,originName,headers);
-                    }
-                } else {
-                    downloadId = startDownload(url,fileName,directory,originName,headers);
-                }
+                
+                downloadId = startDownload(url,fileName,directory,originName,headers);
+                
                 result.success(downloadId);
                 break;
             default:

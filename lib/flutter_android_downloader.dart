@@ -13,10 +13,6 @@ class FlutterAndroidDownloader {
     return version;
   }
 
-  static Future<void> getPermission() async {
-    await _channel.invokeMethod('getPermission');
-  }
-
   static Stream _streamSubscription = const Stream.empty();
 
   static Future<int> download(String url, String directory, String fileName,

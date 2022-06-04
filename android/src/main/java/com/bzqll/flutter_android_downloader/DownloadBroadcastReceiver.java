@@ -1,27 +1,14 @@
 package com.bzqll.flutter_android_downloader;
 
+import static android.app.DownloadManager.ACTION_DOWNLOAD_COMPLETE;
+
 import android.app.DownloadManager;
 import android.content.BroadcastReceiver;
-import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.database.Cursor;
-import android.database.DatabaseUtils;
-import android.os.Build;
-import android.os.Bundle;
-import android.provider.MediaStore;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Stream;
 
 import io.flutter.plugin.common.EventChannel;
-import static android.app.DownloadManager.ACTION_DOWNLOAD_COMPLETE;
 
 public class DownloadBroadcastReceiver extends BroadcastReceiver implements EventChannel.StreamHandler {
     private final Context context;
