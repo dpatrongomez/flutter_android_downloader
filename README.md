@@ -3,32 +3,32 @@
 [![Pub](https://img.shields.io/pub/v/flutter_android_downloader.svg?style=flat-square)](https://pub.dartlang.org/packages/flutter_android_downloader)
 
 
-flutter_android_downloader 一个调用安卓系统下载管理器的插件
+flutter_android_downloader 一 A plug-in that calls the Android system download manager
 
-## 添加依赖
+## Add dependencies
 
 ```yaml
 dependencies:
   flutter_android_downloader: ^1.0.0
 ```
 
-## 创建下载
+## Create download
 
 ```dart
 int downloadId = FlutterAndroidDownloader.download("url", "path", "fileName","originName","headers");
 ```
 
-> 参数说明
+> Parameter Description
 
-| 参数 | 参数类型 |说明 |
+| Parameter | Type | Legend |
 | :-----| :-----| :-----|
-| url | String | 下载地址 |
-| path | String | 下载路径,Android10及以上默认下载到内置存储目录的Download文件夹 |
-| fileName | String | 保存的文件名称 |
-| originName | String | 下载来源名称 |
-| headers | Map<String,String> |请求头,参数可选 |
+| url | String | Download link |
+| path | String | Download path, Android10 and above are downloaded to the Download folder of the built-in storage directory by default |
+| fileName | String | Saved file name |
+| originName | String | Download source name |
+| headers | Map<String,String> | Request header, optional parameters |
 
-## 监听下载完成回调信息
+## Monitor download callback information
 ```dart
 FlutterAndroidDownloader.listen((id) {
   print("success $id");
@@ -36,7 +36,7 @@ FlutterAndroidDownloader.listen((id) {
 });
 ```
 
-## 完整使用示例
+## Complete usage example
 
 ```dart
 FlutterAndroidDownloader.listen((id) {
