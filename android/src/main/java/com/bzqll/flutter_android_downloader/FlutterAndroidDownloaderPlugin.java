@@ -12,19 +12,12 @@ import io.flutter.embedding.engine.plugins.activity.ActivityPluginBinding;
 import io.flutter.plugin.common.BinaryMessenger;
 import io.flutter.plugin.common.EventChannel;
 import io.flutter.plugin.common.MethodChannel;
-import io.flutter.plugin.common.PluginRegistry;
 
 
 public class FlutterAndroidDownloaderPlugin implements FlutterPlugin , ActivityAware {
   private MethodChannel methodChannel;
   private Activity activity;
   private EventChannel eventChannel;
-
-  @Deprecated public static void registerWith(PluginRegistry.Registrar registrar) {
-    FlutterAndroidDownloaderPlugin plugin = new FlutterAndroidDownloaderPlugin();
-    plugin.setupChannels(registrar.messenger(), registrar.context(),registrar.activity());
-
-  }
 
   @Override
   public void onAttachedToEngine(@NonNull FlutterPluginBinding flutterPluginBinding) {

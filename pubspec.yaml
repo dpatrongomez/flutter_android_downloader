@@ -4,8 +4,8 @@ version: 1.0.0
 homepage: https://github.com/mrdong916/flutter_android_downloader
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: ">=3.14.0 <4.0.0"
+  flutter: ">=3.50.1"
 dependencies:
   flutter:
     sdk: flutter
